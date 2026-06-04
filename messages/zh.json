@@ -85,7 +85,8 @@
     "featureValidator": "URL 验证器",
     "featureValidatorDesc": "批量验证和检查多个 URL",
     "featurePrivate": "100% 隐私",
-    "featurePrivateDesc": "所有处理在浏览器中完成，不上传数据"
+    "featurePrivateDesc": "所有处理在浏览器中完成，不上传数据",
+    "featureEncoderDesc": "一键编码和解码 URL 字符串"
   },
   "nav": {
     "about": "关于",

@@ -85,7 +85,8 @@
     "featureValidator": "URL Validator",
     "featureValidatorDesc": "Validate and check multiple URLs at once",
     "featurePrivate": "100% Private",
-    "featurePrivateDesc": "All processing happens in your browser, no data uploaded"
+    "featurePrivateDesc": "All processing happens in your browser, no data uploaded",
+    "featureEncoderDesc": "Encode and decode URL strings with one click"
   },
   "nav": {
     "about": "About",

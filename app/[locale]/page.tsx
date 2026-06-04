@@ -52,12 +52,12 @@ export default function HomePage() {
   ];
 
   const tools = [
-    { name: t("nav.urlParser"), href: "/tools/url-parser", icon: Search },
-    { name: t("nav.queryEditor"), href: "/tools/query-string-editor", icon: Edit3 },
-    { name: t("nav.urlBuilder"), href: "/tools/url-builder", icon: Wrench },
-    { name: t("nav.slugGenerator"), href: "/tools/url-slug-generator", icon: Type },
-    { name: t("nav.urlValidator"), href: "/tools/url-validator", icon: CheckCircle },
-    { name: t("nav.encoderDecoder"), href: "/tools/url-encoder-decoder", icon: ArrowRight },
+    { name: t("nav.urlParser"), desc: t("common.featureParserDesc"), href: "/tools/url-parser", icon: Search },
+    { name: t("nav.queryEditor"), desc: t("common.featureQueryEditorDesc"), href: "/tools/query-string-editor", icon: Edit3 },
+    { name: t("nav.urlBuilder"), desc: t("common.featureBuilderDesc"), href: "/tools/url-builder", icon: Wrench },
+    { name: t("nav.slugGenerator"), desc: t("common.featureSlugDesc"), href: "/tools/url-slug-generator", icon: Type },
+    { name: t("nav.urlValidator"), desc: t("common.featureValidatorDesc"), href: "/tools/url-validator", icon: CheckCircle },
+    { name: t("nav.encoderDecoder"), desc: t("common.featureEncoderDesc"), href: "/tools/url-encoder-decoder", icon: ArrowRight },
   ];
 
   const steps = [
@@ -67,7 +67,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="flex flex-col gap-12 pb-16">
+    <div className="space-y-12 pb-16">
       {/* Hero Section */}
       <section className="text-center py-12 sm:py-16 lg:py-20 px-4">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
@@ -124,11 +124,16 @@ export default function HomePage() {
           {tools.map((tool, i) => (
             <Link key={i} href={tool.href}>
               <Card className="hover:shadow-md transition-shadow h-full">
-                <CardHeader className="flex flex-row items-center gap-4">
+                <CardHeader className="flex flex-row items-start gap-4">
                   <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <tool.icon className="size-5 text-primary" />
                   </div>
-                  <CardTitle className="text-lg">{tool.name}</CardTitle>
+                  <div className="space-y-1">
+                    <CardTitle className="text-lg">{tool.name}</CardTitle>
+                    <CardDescription className="text-sm leading-relaxed">
+                      {tool.desc}
+                    </CardDescription>
+                  </div>
                 </CardHeader>
               </Card>
             </Link>
