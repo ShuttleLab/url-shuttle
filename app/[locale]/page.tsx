@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import { UrlEncoderDecoder } from "@/components/url-encoder-decoder";
@@ -73,48 +72,17 @@ export default function HomePage() {
 
   return (
     <div className="space-y-12 pb-16">
-      {/* Hero Section */}
-      <section className="text-center py-12 sm:py-16 lg:py-20 px-4">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+      {/* Compact Heading */}
+      <section className="text-center pt-8 sm:pt-10 px-4">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
           {t("home.heroTitle")}
         </h1>
-        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+        <p className="text-base text-muted-foreground max-w-2xl mx-auto">
           {t("home.heroSubtitle")}
         </p>
-        <div className="flex gap-4 justify-center flex-wrap">
-          <Button size="lg" onClick={() => document.getElementById("url-tool")?.scrollIntoView({ behavior: "smooth" })}>
-            {t("common.encodeNow")}
-          </Button>
-          <Button variant="outline" size="lg" onClick={() => window.location.href = "/about"}>
-            {t("common.learnMore")}
-          </Button>
-        </div>
       </section>
 
-      {/* Core Features */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-2">{t("common.features")}</h2>
-        <p className="text-center text-muted-foreground mb-8">
-          {t("common.featuresSubtitle")}
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, i) => (
-            <Card key={i}>
-              <CardHeader>
-                <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
-                  <feature.icon className="size-6 text-primary" />
-                </div>
-                <CardTitle>{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>{feature.description}</CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* URL Parser Tool */}
+      {/* URL Encoder/Decoder Tool */}
       <section id="url-tool" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
         <UrlEncoderDecoder />
       </section>
@@ -146,6 +114,29 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Core Features */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-center mb-2">{t("common.features")}</h2>
+        <p className="text-center text-muted-foreground mb-8">
+          {t("common.featuresSubtitle")}
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, i) => (
+            <Card key={i}>
+              <CardHeader>
+                <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                  <feature.icon className="size-6 text-primary" />
+                </div>
+                <CardTitle>{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>{feature.description}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* How It Works */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center mb-8">{t("common.howItWorks")}</h2>
@@ -159,17 +150,6 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="text-center py-12 px-4">
-        <h2 className="text-2xl font-bold mb-4">{t("home.toolsTitle")}</h2>
-        <p className="text-muted-foreground mb-6">
-          {t("home.toolsSubtitle")}
-        </p>
-        <Button size="lg" onClick={() => document.getElementById("url-tool")?.scrollIntoView({ behavior: "smooth" })}>
-          {t("common.getStarted")}
-        </Button>
       </section>
     </div>
   );
