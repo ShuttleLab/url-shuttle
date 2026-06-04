@@ -92,7 +92,9 @@
     "themeLight": "Light",
     "themeDark": "Dark",
     "encodeNow": "Encode / Decode Now",
-    "featureEncoder": "URL Encoder/Decoder"
+    "featureEncoder": "URL Encoder/Decoder",
+    "notePromoDesc": "Markdown editor & sharing",
+    "statusPromoDesc": "Uptime monitoring & alerts"
   },
   "nav": {
     "about": "About",

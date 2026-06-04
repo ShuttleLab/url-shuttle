@@ -92,7 +92,9 @@
     "themeLight": "日间模式",
     "themeDark": "暗色模式",
     "encodeNow": "立即编码 / 解码",
-    "featureEncoder": "URL 编码解码"
+    "featureEncoder": "URL 编码解码",
+    "notePromoDesc": "Markdown 编辑与分享",
+    "statusPromoDesc": "可用性监控与告警"
   },
   "nav": {
     "about": "关于",

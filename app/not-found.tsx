@@ -43,11 +43,19 @@ export default function NotFound() {
             Also from ShuttleLab
           </p>
           <a
-            href="https://image.shuttlelab.org"
+            href="https://note.shuttlelab.org"
             rel="noopener"
-            className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            className="text-sm text-muted-foreground hover:text-foreground"
           >
-            Image Shuttle — Free Image Compression & Conversion
+            Note Shuttle — Markdown editor &amp; sharing
+          </a>
+          <span className="mx-2 text-muted-foreground/30">|</span>
+          <a
+            href="https://status.shuttlelab.org"
+            rel="noopener"
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
+            Status Shuttle — Uptime monitoring
           </a>
         </div>
       </div>
