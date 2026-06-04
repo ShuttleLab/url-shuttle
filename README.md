@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# URL Shuttle
+
+<div align="center">
+  <h1>URL Shuttle</h1>
+  <p>
+    <strong>Free, Private & Browser-Based URL Toolkit</strong>
+  </p>
+  <p>
+    Parse, build, encode, validate, and edit URLs — entirely in your browser, no uploads.
+  </p>
+</div>
+
+<div align="center">
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
+![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwindcss)
+
+</div>
+
+## About
+
+**URL Shuttle** is a privacy-first toolkit for working with URLs. Every operation runs on the WHATWG `URL` API and native encoding functions directly in your browser — query strings, tokens, and internal links never leave your device.
+
+## Tools
+
+- **URL Parser** — break any URL into protocol, host, path, query parameters, and fragment
+- **URL Builder** — assemble URLs from parts with automatic encoding
+- **Query String Editor** — add, edit, delete, and bulk encode/decode query parameters
+- **URL Encoder/Decoder** — `encodeURIComponent` / `encodeURI` and their inverses
+- **URL Validator** — batch-validate URL lists, one per line
+- **URL Slug Generator** — convert titles into clean SEO-friendly slugs
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, static export) + [React 19](https://react.dev/)
+- **Language**: [TypeScript 5](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) primitives
+- **i18n**: [next-intl](https://next-intl.dev/) with URL-based routing (English + Chinese)
+- **Theming**: System / Light / Dark three-state theme
+- **Deployment**: [Cloudflare Workers](https://workers.cloudflare.com/) static assets (`output: "export"`)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+git clone https://github.com/ShuttleLab/url-shuttle.git
+cd url-shuttle
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the application running.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the Next.js dev server |
+| `npm run build` | Static-export build into `out/` (incl. locale post-processing) |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+URL Shuttle deploys as static assets on Cloudflare Workers. The build emits to `out/`, which `wrangler.toml` points at; `scripts/postbuild.mjs` promotes the default-locale pages to the web root and fixes the `lang` attribute on Chinese pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the MIT License.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+  Built by <a href="https://github.com/ShuttleLab">ShuttleLab</a>
+</div>
