@@ -90,7 +90,9 @@
     "appearance": "Appearance",
     "themeSystem": "System",
     "themeLight": "Light",
-    "themeDark": "Dark"
+    "themeDark": "Dark",
+    "encodeNow": "Encode / Decode Now",
+    "featureEncoder": "URL Encoder/Decoder"
   },
   "nav": {
     "about": "About",
@@ -220,7 +222,9 @@
     "encodeUri": "encodeURI",
     "copy": "Copy",
     "swap": "Swap",
-    "decodeError": "Cannot decode: the input contains an invalid escape sequence"
+    "decodeError": "Cannot decode: the input contains an invalid escape sequence",
+    "clear": "Clear",
+    "outputPlaceholder": "Result will appear here..."
   },
   "about": {
     "title": "About URL Shuttle",
@@ -434,6 +438,32 @@
       "faq5q": "Is the tool free to use?",
       "faq5a": "Yes, URL Builder is completely free with no usage limits. All processing happens locally in your browser for maximum speed and privacy.",
       "cta": "Try the URL Builder above — construct perfect URLs instantly!"
+    }
+  },
+  "toolPages": {
+    "urlParser": {
+      "title": "URL Parser",
+      "subtitle": "Break any URL into its protocol, hostname, port, path, query parameters, and hash. Everything runs in your browser with the native WHATWG URL API, so your links stay completely private."
+    },
+    "urlBuilder": {
+      "title": "URL Builder",
+      "subtitle": "Assemble a valid URL from a protocol, hostname, port, path, query parameters, and hash. Everything is constructed in your browser with the native WHATWG URL API, so your links are built correctly and stay completely private."
+    },
+    "urlEncoderDecoder": {
+      "title": "URL Encoder / Decoder",
+      "subtitle": "Percent-encode text for safe use in URLs, or decode an encoded string back to readable text. Switch between encodeURIComponent and encodeURI, and run everything locally in your browser so your data stays completely private."
+    },
+    "urlValidator": {
+      "title": "URL Validator",
+      "subtitle": "Check a whole list of URLs at once for valid format, supported protocol, port range, excessive length, and embedded credentials. Everything runs in your browser with the native WHATWG URL API, so your links stay completely private."
+    },
+    "urlSlugGenerator": {
+      "title": "URL Slug Generator",
+      "subtitle": "Turn any title into a clean, SEO-friendly URL slug. Choose your separator and case, optionally remove common English stop words, strip special characters, and cap the length. Everything runs in your browser, so your text stays completely private."
+    },
+    "queryStringEditor": {
+      "title": "Query String Editor",
+      "subtitle": "Visually add, remove, edit, sort, encode, and decode the query parameters of any URL. Everything runs in your browser with the native URL and URLSearchParams APIs, so your links stay completely private."
     }
   }
 }

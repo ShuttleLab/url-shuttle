@@ -1,4 +1,4 @@
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { UrlParser } from "@/components/url-parser";
 import type { Metadata } from "next";
@@ -8,7 +8,19 @@ type Props = { params: Promise<{ locale: string }> };
 const BASE_URL = "https://url.shuttlelab.org";
 const CANONICAL = `${BASE_URL}/tools/url-parser/`;
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale === "zh") {
+    const t = await getTranslations({ locale, namespace: "toolPages.urlParser" });
+    return {
+      title: t("title"),
+      description: t("subtitle"),
+      alternates: {
+        canonical: CANONICAL,
+        languages: { en: CANONICAL, zh: CANONICAL, "x-default": CANONICAL },
+      },
+    };
+  }
   return {
     title: "URL Parser Online — Free WHATWG URL Component Analyzer",
     description:
@@ -23,6 +35,24 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function UrlParserPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  if (locale === "zh") {
+    const t = await getTranslations({ locale, namespace: "toolPages.urlParser" });
+    return (
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-4xl font-bold mb-4">{t("title")}</h1>
+        <p className="text-xl text-muted-foreground mb-8">{t("subtitle")}</p>
+        <div className="mb-12">
+          <UrlParser />
+        </div>
+        <p className="text-sm text-muted-foreground text-center">
+          <Link href="/tools/url-parser/" className="underline hover:text-foreground">
+            查看完整英文指南 →
+          </Link>
+        </p>
+      </div>
+    );
+  }
 
   const techArticleSchema = {
     "@context": "https://schema.org",

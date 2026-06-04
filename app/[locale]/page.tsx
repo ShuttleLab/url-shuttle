@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
-import { UrlParser } from "@/components/url-parser";
+import { UrlEncoderDecoder } from "@/components/url-encoder-decoder";
 import {
   Search,
   Edit3,
@@ -19,6 +19,11 @@ export default function HomePage() {
   const t = useTranslations();
 
   const features = [
+    {
+      icon: ArrowRight,
+      title: t("common.featureEncoder"),
+      description: t("common.featureEncoderDesc"),
+    },
     {
       icon: Search,
       title: t("common.featureParser"),
@@ -52,12 +57,12 @@ export default function HomePage() {
   ];
 
   const tools = [
+    { name: t("nav.encoderDecoder"), desc: t("common.featureEncoderDesc"), href: "/tools/url-encoder-decoder", icon: ArrowRight },
     { name: t("nav.urlParser"), desc: t("common.featureParserDesc"), href: "/tools/url-parser", icon: Search },
     { name: t("nav.queryEditor"), desc: t("common.featureQueryEditorDesc"), href: "/tools/query-string-editor", icon: Edit3 },
     { name: t("nav.urlBuilder"), desc: t("common.featureBuilderDesc"), href: "/tools/url-builder", icon: Wrench },
     { name: t("nav.slugGenerator"), desc: t("common.featureSlugDesc"), href: "/tools/url-slug-generator", icon: Type },
     { name: t("nav.urlValidator"), desc: t("common.featureValidatorDesc"), href: "/tools/url-validator", icon: CheckCircle },
-    { name: t("nav.encoderDecoder"), desc: t("common.featureEncoderDesc"), href: "/tools/url-encoder-decoder", icon: ArrowRight },
   ];
 
   const steps = [
@@ -77,8 +82,8 @@ export default function HomePage() {
           {t("home.heroSubtitle")}
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
-          <Button size="lg" onClick={() => document.getElementById("url-parser")?.scrollIntoView({ behavior: "smooth" })}>
-            {t("common.analyzeUrl")}
+          <Button size="lg" onClick={() => document.getElementById("url-tool")?.scrollIntoView({ behavior: "smooth" })}>
+            {t("common.encodeNow")}
           </Button>
           <Button variant="outline" size="lg" onClick={() => window.location.href = "/about"}>
             {t("common.learnMore")}
@@ -110,8 +115,8 @@ export default function HomePage() {
       </section>
 
       {/* URL Parser Tool */}
-      <section id="url-parser" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
-        <UrlParser />
+      <section id="url-tool" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+        <UrlEncoderDecoder />
       </section>
 
       {/* Tool Entry Points */}
@@ -162,7 +167,7 @@ export default function HomePage() {
         <p className="text-muted-foreground mb-6">
           {t("home.toolsSubtitle")}
         </p>
-        <Button size="lg" onClick={() => document.getElementById("url-parser")?.scrollIntoView({ behavior: "smooth" })}>
+        <Button size="lg" onClick={() => document.getElementById("url-tool")?.scrollIntoView({ behavior: "smooth" })}>
           {t("common.getStarted")}
         </Button>
       </section>

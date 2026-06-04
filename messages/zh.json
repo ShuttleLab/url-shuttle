@@ -90,7 +90,9 @@
     "appearance": "外观",
     "themeSystem": "跟随系统",
     "themeLight": "日间模式",
-    "themeDark": "暗色模式"
+    "themeDark": "暗色模式",
+    "encodeNow": "立即编码 / 解码",
+    "featureEncoder": "URL 编码解码"
   },
   "nav": {
     "about": "关于",
@@ -220,7 +222,9 @@
     "encodeUri": "encodeURI",
     "copy": "复制",
     "swap": "交换",
-    "decodeError": "无法解码：输入包含无效的转义序列"
+    "decodeError": "无法解码：输入包含无效的转义序列",
+    "clear": "清空",
+    "outputPlaceholder": "结果将显示在这里..."
   },
   "about": {
     "title": "关于 URL Shuttle",
@@ -434,6 +438,32 @@
       "faq5q": "这个工具免费使用吗？",
       "faq5a": "是的，URL 构建器完全免费且没有使用限制。所有处理在浏览器中本地完成以实现最大速度和隐私。",
       "cta": "立即尝试上面的 URL 构建器——即时构建完美 URL！"
+    }
+  },
+  "toolPages": {
+    "urlParser": {
+      "title": "URL 解析器",
+      "subtitle": "将任意 URL 拆解为协议、主机名、端口、路径、查询参数和哈希片段。全部在浏览器中使用原生 WHATWG URL API 处理，你的链接完全私密。"
+    },
+    "urlBuilder": {
+      "title": "URL 构建器",
+      "subtitle": "从协议、主机名、端口、路径、查询参数和哈希片段拼装出合法的 URL。全部在浏览器中使用原生 WHATWG URL API 构建，链接格式正确且完全私密。"
+    },
+    "urlEncoderDecoder": {
+      "title": "URL 编码 / 解码",
+      "subtitle": "将文本进行百分号编码以便安全用于 URL，或把编码后的字符串解码回可读文本。可在 encodeURIComponent 与 encodeURI 之间切换，全部在浏览器本地运行，数据完全私密。"
+    },
+    "urlValidator": {
+      "title": "URL 校验器",
+      "subtitle": "一次性批量检查多个 URL 的格式是否合法、协议是否支持、端口范围、长度是否过长以及是否内嵌凭据。全部在浏览器中使用原生 WHATWG URL API 处理，你的链接完全私密。"
+    },
+    "urlSlugGenerator": {
+      "title": "URL Slug 生成器",
+      "subtitle": "将任意标题转换为简洁、利于 SEO 的 URL slug。可选择分隔符与大小写，移除常见英文停用词，去除特殊字符，并限制最大长度。全部在浏览器中运行，你的文本完全私密。"
+    },
+    "queryStringEditor": {
+      "title": "查询字符串编辑器",
+      "subtitle": "可视化地添加、删除、编辑、排序、编码和解码任意 URL 的查询参数。全部在浏览器中使用原生 URL 与 URLSearchParams API 处理，你的链接完全私密。"
     }
   }
 }

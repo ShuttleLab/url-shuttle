@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { PalettePicker } from "@/components/palette-picker";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 
 const GITHUB_URL = "https://github.com/ShuttleLab";
 
@@ -11,11 +11,15 @@ export default function Header() {
   const t = useTranslations();
   const locale = useLocale();
   const pathname = usePathname();
-  const router = useRouter();
 
   const toggleLocale = () => {
+    // Static export has no middleware: next-intl's router.replace would
+    // prefix the default locale (/en/...) which doesn't exist in the build.
+    // Compute the target manually — English lives at the root, Chinese
+    // under /zh. usePathname() already strips the locale prefix.
     const nextLocale = locale === "zh" ? "en" : "zh";
-    router.replace(pathname, { locale: nextLocale });
+    const clean = pathname.endsWith("/") ? pathname : `${pathname}/`;
+    window.location.href = nextLocale === "en" ? clean : `/zh${clean === "/" ? "/" : clean}`;
   };
 
   return (
