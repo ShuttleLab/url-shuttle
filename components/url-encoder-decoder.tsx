@@ -16,6 +16,7 @@ export function UrlEncoderDecoder() {
   const [encodeType, setEncodeType] = useState<"component" | "uri">("component");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [error, setError] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
@@ -30,8 +31,10 @@ export function UrlEncoderDecoder() {
       } else {
         setOutput(decodeURIComponent(e.target.value));
       }
+      setError("");
     } catch {
       setOutput("");
+      setError(mode === "decode" ? t("encoder.decodeError") : "");
     }
   };
 
@@ -39,6 +42,7 @@ export function UrlEncoderDecoder() {
     setInput(output);
     setOutput(input);
     setMode(mode === "encode" ? "decode" : "encode");
+    setError("");
   };
 
   const copyToClipboard = (text: string) => {
@@ -92,13 +96,19 @@ export function UrlEncoderDecoder() {
         </div>
 
         <div className="space-y-2">
-          <Label>{t("common.input")}</Label>
+          <Label htmlFor="encoder-input">{t("common.input")}</Label>
           <Textarea
+            id="encoder-input"
             placeholder={t("encoder.inputPlaceholder")}
             value={input}
             onChange={handleInputChange}
             className="font-mono text-sm min-h-[100px]"
           />
+          {error && (
+            <div className="text-sm text-destructive bg-destructive/10 p-3 rounded-md">
+              {error}
+            </div>
+          )}
         </div>
 
         <div className="flex justify-center">
@@ -108,8 +118,8 @@ export function UrlEncoderDecoder() {
         </div>
 
         <div className="space-y-2">
-          <div className="flex items-center justify-between">
-            <Label>{t("encoder.output")}</Label>
+          <div className="flex items-center justify-between gap-2 flex-wrap">
+            <Label htmlFor="encoder-output">{t("encoder.output")}</Label>
             <Button
               variant="ghost"
               size="sm"
@@ -121,6 +131,7 @@ export function UrlEncoderDecoder() {
             </Button>
           </div>
           <Textarea
+            id="encoder-output"
             value={output}
             readOnly
             className="font-mono text-sm min-h-[100px] bg-muted"

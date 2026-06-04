@@ -86,7 +86,11 @@
     "featureValidatorDesc": "批量验证和检查多个 URL",
     "featurePrivate": "100% 隐私",
     "featurePrivateDesc": "所有处理在浏览器中完成，不上传数据",
-    "featureEncoderDesc": "一键编码和解码 URL 字符串"
+    "featureEncoderDesc": "一键编码和解码 URL 字符串",
+    "appearance": "外观",
+    "themeSystem": "跟随系统",
+    "themeLight": "日间模式",
+    "themeDark": "暗色模式"
   },
   "nav": {
     "about": "关于",
@@ -215,7 +219,8 @@
     "encodeComponent": "encodeURIComponent",
     "encodeUri": "encodeURI",
     "copy": "复制",
-    "swap": "交换"
+    "swap": "交换",
+    "decodeError": "无法解码：输入包含无效的转义序列"
   },
   "about": {
     "title": "关于 URL Shuttle",

@@ -143,27 +143,32 @@ export function UrlBuilder() {
           {params.length > 0 && (
             <div className="border rounded-md divide-y">
               {params.map((param, i) => (
-                <div key={i} className="flex items-center gap-2 p-2">
-                  <Input
-                    placeholder={t("builder.keyPlaceholder")}
-                    value={param.key}
-                    onChange={(e) => updateParam(i, "key", e.target.value)}
-                    className="font-mono flex-1"
-                  />
+                <div key={i} className="flex flex-col gap-2 p-2 sm:flex-row sm:items-center">
+                  <div className="flex items-center gap-2 sm:contents">
+                    <Input
+                      placeholder={t("builder.keyPlaceholder")}
+                      value={param.key}
+                      onChange={(e) => updateParam(i, "key", e.target.value)}
+                      className="font-mono flex-1 min-w-0 sm:order-1"
+                      aria-label={t("common.key")}
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="size-8 shrink-0 sm:order-3"
+                      onClick={() => removeParam(i)}
+                      aria-label={t("common.removeParameter")}
+                    >
+                      <X className="size-4" />
+                    </Button>
+                  </div>
                   <Input
                     placeholder={t("builder.valuePlaceholder")}
                     value={param.value}
                     onChange={(e) => updateParam(i, "value", e.target.value)}
-                    className="font-mono flex-1"
+                    className="font-mono flex-1 min-w-0 sm:order-2"
+                    aria-label={t("common.value")}
                   />
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="size-8 shrink-0"
-                    onClick={() => removeParam(i)}
-                  >
-                    <X className="size-4" />
-                  </Button>
                 </div>
               ))}
             </div>
@@ -178,7 +183,7 @@ export function UrlBuilder() {
                 {resultUrl}
               </div>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <Button
                 variant="outline"
                 size="sm"

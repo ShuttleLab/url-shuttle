@@ -101,8 +101,9 @@ export function UrlSlug() {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
-          <Label>{t("common.input")}</Label>
+          <Label htmlFor="slug-input">{t("common.input")}</Label>
           <Input
+            id="slug-input"
             placeholder={t("slug.inputPlaceholder")}
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -138,8 +139,9 @@ export function UrlSlug() {
               </Select>
             </div>
             <div className="space-y-2">
-              <Label className="text-sm">{t("slug.maxLength")}</Label>
+              <Label className="text-sm" htmlFor="slug-maxlength">{t("slug.maxLength")}</Label>
               <Input
+                id="slug-maxlength"
                 type="number"
                 value={maxLength}
                 onChange={(e) => setMaxLength(Number(e.target.value))}

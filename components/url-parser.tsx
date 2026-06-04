@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import { Copy, Eye, EyeOff, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 
@@ -70,9 +71,6 @@ export function UrlParser() {
     toast.success(t("common.copied"));
   };
 
-  const copyComponent = (label: string, value: string) => {
-    copyToClipboard(value);
-  };
 
   return (
     <Card>
@@ -82,7 +80,9 @@ export function UrlParser() {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
+          <Label htmlFor="parser-url">{t("common.enterUrl")}</Label>
           <Input
+            id="parser-url"
             placeholder={t("parser.inputPlaceholder")}
             value={url}
             onChange={handleInputChange}
@@ -114,14 +114,14 @@ export function UrlParser() {
                   { label: t("common.hash"), value: components.hash },
                 ].map(({ label, value }) =>
                   value ? (
-                    <div key={label} className="flex items-center justify-between p-3">
-                      <span className="text-sm font-medium text-muted-foreground w-24">
+                    <div key={label} className="flex items-start gap-2 p-3 sm:items-center">
+                      <span className="text-sm font-medium text-muted-foreground w-20 shrink-0 sm:w-24">
                         {label}
                       </span>
-                      <span className="text-sm font-mono flex-1 truncate mr-2">
+                      <span className="text-sm font-mono flex-1 break-all min-w-0">
                         {value}
                       </span>
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-1 shrink-0">
                         {label === t("common.password") && (
                           <Button
                             variant="ghost"
@@ -136,7 +136,7 @@ export function UrlParser() {
                           variant="ghost"
                           size="icon"
                           className="size-8"
-                          onClick={() => copyComponent(label, label === t("common.password") ? components.password : value)}
+                          onClick={() => copyToClipboard(label === t("common.password") ? components.password : value)}
                         >
                           <Copy className="size-4" />
                         </Button>
@@ -153,15 +153,15 @@ export function UrlParser() {
                   {t("parser.queryParams")}
                 </h3>
                 <div className="border rounded-md">
-                  <div className="grid grid-cols-[1fr_1fr_auto] gap-4 p-3 bg-muted text-sm font-medium">
+                  <div className="grid grid-cols-[1fr_1fr_auto] gap-2 p-3 bg-muted text-sm font-medium sm:gap-4">
                     <div>{t("common.key")}</div>
                     <div>{t("common.value")}</div>
                     <div className="w-8"></div>
                   </div>
                   {components.params.map((param, i) => (
-                    <div key={i} className="grid grid-cols-[1fr_1fr_auto] gap-4 p-3 border-t text-sm">
-                      <div className="font-mono truncate">{param.key}</div>
-                      <div className="font-mono truncate">{param.value}</div>
+                    <div key={i} className="grid grid-cols-[1fr_1fr_auto] gap-2 p-3 border-t text-sm sm:gap-4">
+                      <div className="font-mono break-all min-w-0">{param.key}</div>
+                      <div className="font-mono break-all min-w-0">{param.value}</div>
                       <Button
                         variant="ghost"
                         size="icon"
@@ -176,7 +176,7 @@ export function UrlParser() {
               </div>
             )}
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <Button
                 variant="outline"
                 size="sm"

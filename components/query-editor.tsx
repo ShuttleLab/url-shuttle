@@ -133,8 +133,9 @@ export function QueryEditor() {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
-          <Label>{t("common.input")}</Label>
+          <Label htmlFor="query-editor-input">{t("common.input")}</Label>
           <Input
+            id="query-editor-input"
             placeholder={t("queryEditor.inputPlaceholder")}
             value={inputUrl}
             onChange={handleInputChange}
@@ -169,35 +170,43 @@ export function QueryEditor() {
 
           {params.length > 0 ? (
             <div className="border rounded-md">
-              <div className="grid grid-cols-[auto_1fr_1fr_auto] gap-4 p-3 bg-muted text-sm font-medium">
+              <div className="hidden sm:grid sm:grid-cols-[auto_1fr_1fr_auto] gap-4 p-3 bg-muted text-sm font-medium">
                 <div className="w-8">{t("common.number")}</div>
                 <div>{t("common.key")}</div>
                 <div>{t("common.value")}</div>
                 <div className="w-8"></div>
               </div>
               {params.map((param, i) => (
-                <div key={i} className="grid grid-cols-[auto_1fr_1fr_auto] gap-4 p-3 border-t text-sm items-center">
-                  <div className="w-8 text-muted-foreground">{i + 1}</div>
-                  <Input
-                    placeholder={t("common.key")}
-                    value={param.key}
-                    onChange={(e) => updateParam(i, "key", e.target.value)}
-                    className="font-mono h-8"
-                  />
+                <div
+                  key={i}
+                  className="flex flex-col gap-2 p-3 border-t text-sm sm:grid sm:grid-cols-[auto_1fr_1fr_auto] sm:gap-4 sm:items-center"
+                >
+                  <div className="flex items-center gap-2 sm:contents">
+                    <div className="w-8 text-muted-foreground shrink-0 sm:order-1">{i + 1}</div>
+                    <Input
+                      placeholder={t("common.key")}
+                      value={param.key}
+                      onChange={(e) => updateParam(i, "key", e.target.value)}
+                      className="font-mono h-8 min-w-0 flex-1 sm:order-2 sm:flex-none"
+                      aria-label={t("common.key")}
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="size-8 shrink-0 sm:order-4"
+                      onClick={() => removeParam(i)}
+                      aria-label={t("common.removeParameter")}
+                    >
+                      <X className="size-4" />
+                    </Button>
+                  </div>
                   <Input
                     placeholder={t("common.value")}
                     value={param.value}
                     onChange={(e) => updateParam(i, "value", e.target.value)}
-                    className="font-mono h-8"
+                    className="font-mono h-8 min-w-0 sm:order-3"
+                    aria-label={t("common.value")}
                   />
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="size-8 shrink-0"
-                    onClick={() => removeParam(i)}
-                  >
-                    <X className="size-4" />
-                  </Button>
                 </div>
               ))}
             </div>
