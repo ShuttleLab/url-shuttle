@@ -2,6 +2,8 @@
 
 A small web app to parse, build, encode, validate, and edit URLs. Everything runs on the WHATWG URL API in the browser; no data is sent to any server.
 
+**🔗 Try it live: [Free online URL parser, encoder & builder](https://url.shuttlelab.org)** — parse, encode, and build URLs instantly in your browser.
+
 ## Features
 
 - **Encoder / Decoder** – percent-encode or decode with explicit buttons, encodeURIComponent / encodeURI modes
